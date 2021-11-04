@@ -59,7 +59,7 @@ bool peek(Stack<T> *stack, T *item)
     {
         return false;
     }
-    *item = stack->itens[stack->top]; // Return the last item e remove it
+    *item = stack->itens[stack->top]; // Return the last item only
     return true;
 }
 
