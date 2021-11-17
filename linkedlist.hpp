@@ -1,29 +1,29 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
 
-template <typename TData>
+template <typename T>
 struct Node;
 
-template <typename TData>
+template <typename T>
 struct LinkedList;
 
-template <typename TData>
-LinkedList<TData> *create();
+template <typename T>
+LinkedList<T> *create();
 
-template <typename TData>
-void insertItem(TData e, LinkedList<TData> *list);
+template <typename T>
+void insertItem(T e, LinkedList<T> *list);
 
-template <typename TData>
-bool isEmpty(LinkedList<TData> *list);
+template <typename T>
+bool isEmpty(LinkedList<T> *list);
 
-template <typename TData>
-Node<TData> *searchItem(LinkedList<TData> *list, int val, bool (*compare)(TData, int));
+template <typename T>
+Node<T> *searchItem(LinkedList<T> *list, int val, bool (*compare)(T, int));
 
-template <typename TData>
-void printList(LinkedList<TData> *list, void (*print)(TData));
+template <typename T>
+void printList(LinkedList<T> *list, void (*print)(T));
 
-template <typename TData>
-bool deleteItem(LinkedList<TData> *list, Node<TData> *&node);
+template <typename T>
+bool deleteItem(LinkedList<T> *list, Node<T> *&node);
 
 #include "linkedlist.cpp"
 #endif

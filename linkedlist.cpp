@@ -1,55 +1,55 @@
-template <typename TData>
+template <typename T>
 struct Node
 {
-    TData data;
-    Node<TData> *next = NULL;
+    T data;
+    Node<T> *next = NULL;
 };
 
-template <typename TData>
+template <typename T>
 struct LinkedList
 {
-    Node<TData> *head = NULL;
-    Node<TData> *last = NULL;
+    Node<T> *head = NULL;
+    Node<T> *last = NULL;
 };
 
-template <typename TData>
-LinkedList<TData> *create()
+template <typename T>
+LinkedList<T> *create()
 {
-    LinkedList<TData> *list = new LinkedList<TData>;
+    LinkedList<T> *list = new LinkedList<T>;
     return list;
 }
 
-template <typename TData>
-void insertItem(TData e, LinkedList<TData> *list)
+template <typename T>
+void insertItem(T e, LinkedList<T> *list)
 {
     if (list->head == NULL)
     {
-        list->head = new Node<TData>; 
+        list->head = new Node<T>; 
         list->last = list->head;
         list->head->next = NULL;
         list->last->data = e;
         return;
     }
-    list->last->next = new Node<TData>;
+    list->last->next = new Node<T>;
     list->last = list->last->next;
     list->last->next = NULL;
     list->last->data = e;
 }
 
-template <typename TData>
-bool isEmpty(LinkedList<TData> *list)
+template <typename T>
+bool isEmpty(LinkedList<T> *list)
 {
     return (list->head == NULL);
 }
 
-template <typename TData>
-Node<TData> *searchItem(LinkedList<TData> *list, int val, bool (*compare)(TData, int))
+template <typename T>
+Node<T> *searchItem(LinkedList<T> *list, int val, bool (*compare)(T, int))
 {
     if (isEmpty(list))
     {
         return NULL;
     }
-    Node<TData> *current = list->head;
+    Node<T> *current = list->head;
 
     do
     {
@@ -62,10 +62,10 @@ Node<TData> *searchItem(LinkedList<TData> *list, int val, bool (*compare)(TData,
     return NULL;
 }
 
-template <typename TData>
-void printList(LinkedList<TData> *list, void (*print)(TData))
+template <typename T>
+void printList(LinkedList<T> *list, void (*print)(T))
 {
-    Node<TData> *current = list->head;
+    Node<T> *current = list->head;
     while (current != NULL)
     {
         print(current->data);
@@ -74,8 +74,8 @@ void printList(LinkedList<TData> *list, void (*print)(TData))
     cout << endl;
 }
 
-template <typename TData>
-bool deleteItem(LinkedList<TData> *list, Node<TData> *&node)
+template <typename T>
+bool deleteItem(LinkedList<T> *list, Node<T> *&node)
 {
     if (node == NULL)
     {
@@ -91,7 +91,7 @@ bool deleteItem(LinkedList<TData> *list, Node<TData> *&node)
     }
     else
     {
-        Node<TData> *prev = list->head;
+        Node<T> *prev = list->head;
         while (prev->next != node)
         {
             prev = prev->next;

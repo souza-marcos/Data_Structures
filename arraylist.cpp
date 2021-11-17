@@ -1,30 +1,30 @@
 #include <iostream>
 using namespace std;
 
-template <typename TData>
+template <typename T>
 struct ArrayList
 {
-    TData *data;
+    T *data;
     int size;
 };
 
-template <typename TData>
-ArrayList<TData> *create(int maxSize)
+template <typename T>
+ArrayList<T> *create(int maxSize)
 {
-    ArrayList<TData> *list = new ArrayList<TData>;
-    list->data = new TData[maxSize];
+    ArrayList<T> *list = new ArrayList<T>;
+    list->data = new T[maxSize];
     list->size = 0;
     return list;
 }
 
-template <typename TData>
-bool isEmpty(ArrayList<TData> *list)
+template <typename T>
+bool isEmpty(ArrayList<T> *list)
 {
     return list->size == 0;
 }
 
-template <typename TData>
-bool insertItem(ArrayList<TData> *list, TData item, int tamMax)
+template <typename T>
+bool insertItem(ArrayList<T> *list, T item, int tamMax)
 {
     if (list->size >= tamMax)
     {
@@ -35,8 +35,8 @@ bool insertItem(ArrayList<TData> *list, TData item, int tamMax)
     return true;
 }
 
-template <typename TData>
-void printList(ArrayList<TData> *list, void (*print)(TData))
+template <typename T>
+void printList(ArrayList<T> *list, void (*print)(T))
 {
     for (int i = 0; i < list->size; i++)
     {
@@ -45,8 +45,8 @@ void printList(ArrayList<TData> *list, void (*print)(TData))
     cout << endl;
 }
 
-template <typename TData>
-int searchItem(ArrayList<TData> *list, int val, bool (*compare)(TData, int))
+template <typename T>
+int searchItem(ArrayList<T> *list, int val, bool (*compare)(T, int))
 {
     for (int i = 0; i < list->size; i++)
     {
@@ -58,8 +58,8 @@ int searchItem(ArrayList<TData> *list, int val, bool (*compare)(TData, int))
     return -1;
 }
 
-template <typename TData>
-bool deleteItem(ArrayList<TData> *list, int val, bool (*compare)(TData, int))
+template <typename T>
+bool deleteItem(ArrayList<T> *list, int val, bool (*compare)(T, int))
 {
     int first = searchItem(list, val, compare);
     if (first < 0)

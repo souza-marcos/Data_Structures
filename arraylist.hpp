@@ -1,26 +1,26 @@
 #ifndef ARRAYLIST_HPP
 #define ARRAYLIST_HPP
 
-template <typename TData>
+template <typename T>
 struct ArrayList;
 
-template <typename TData>
-ArrayList<TData> *create(int maxSize);
+template <typename T>
+ArrayList<T> *create(int maxSize);
 
-template <typename TData>
-bool isEmpty(ArrayList<TData> *list);
+template <typename T>
+bool isEmpty(ArrayList<T> *list);
 
-template <typename TData>
-bool insertItem(ArrayList<TData> *list, TData item, int tamMax);
+template <typename T>
+bool insertItem(ArrayList<T> *list, T item, int tamMax);
 
-template <typename TData>
-void printList(ArrayList<TData> *list, void (*print)(TData));
+template <typename T>
+void printList(ArrayList<T> *list, void (*print)(T));
 
-template <typename TData>
-int searchItem(ArrayList<TData> *list, int val, bool (*compare)(TData, int));
+template <typename T>
+int searchItem(ArrayList<T> *list, int val, bool (*compare)(T, int));
 
-template <typename TData>
-bool deleteItem(ArrayList<TData> *list, int val, bool (*compare)(TData, int));
+template <typename T>
+bool deleteItem(ArrayList<T> *list, int val, bool (*compare)(T, int));
 
 #include "arraylist.cpp"
 #endif
