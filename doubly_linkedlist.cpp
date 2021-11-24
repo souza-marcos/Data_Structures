@@ -1,4 +1,3 @@
-
 template <typename T>
 struct NodeDLL
 {
@@ -125,15 +124,22 @@ bool deleteItem(DoublyLinkedList<T> *list, NodeDLL<T> *&node)
     {
         return false;
     }
+
+    if (node != list->head && node != list->last)
+    {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+    }
     if (node == list->head)
     {
         list->head = node->next;
         list->head->prev = NULL;
     }
-    if(node == list->last){
+    if (node == list->last)
+    {
         list->last = node->prev;
         list->last->next = NULL;
     }
-    delete node; 
+    delete node;
     return true;
 }
